@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetes Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .form-container { max-width: 400px; margin: auto; padding: 20px; }
+        input { margin: 10px; padding: 5px; width: 200px; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Diabetes Prediction</h1>
+    <div class="form-container">
+        <form method="POST">
+            <label>Pregnancies: <input type="number" name="Pregnancies" required></label><br>
+            <label>Glucose (mg/dL): <input type="number" name="Glucose" required></label><br>
+            <label>Blood Pressure (mm Hg): <input type="number" name="BloodPressure" required></label><br>
+            <label>Skin Thickness (mm): <input type="number" name="SkinThickness" required></label><br>
+            <label>Insulin (μU/mL): <input type="number" name="Insulin" required></label><br>
+            <label>BMI (kg/m²): <input type="number" name="BMI" step="0.1" required></label><br>
+            <label>Diabetes Pedigree Function: <input type="number" name="DiabetesPedigreeFunction" step="0.01" required></label><br>
+            <label>Age (years): <input type="number" name="Age" required></label><br>
+            <input type="submit" value="Predict">
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
