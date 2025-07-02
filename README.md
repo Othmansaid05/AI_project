@@ -13,7 +13,7 @@ visualizations/: Saved plots (confusion matrix, ROC curve, feature importance).
 
 Setup
 
-Clone the repository: git clone <repository-link>
+Clone the repository: git clone https://github.com/Othmansaid05/AI_project
 Install dependencies: pip install -r requirements.txt
 Place diabetes.csv in the data/ folder.
 Run the main script: python src/diabetes_project.py
