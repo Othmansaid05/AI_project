@@ -1,31 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Diabetes Prediction</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        .form-container { max-width: 400px; margin: auto; padding: 20px; }
-        input { margin: 10px; padding: 5px; width: 200px; }
-        .error { color: red; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diabetes Prediction</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0ecf8, #f9fbfd);
+      margin: 0;
+      padding: 40px 16px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 480px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 15px;
+      font-weight: 500;
+      color: #444;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 6px;
+      transition: 0.2s;
+    }
+
+    input[type="number"]:focus {
+      outline: none;
+      border-color: #007BFF;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background-color: #007BFF;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .error {
+      color: red;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-height: 600px) {
+      body {
+        align-items: flex-start;
+        padding-top: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="card">
     <h1>Diabetes Prediction</h1>
-    <div class="form-container">
-        <form method="POST">
-            <label>Pregnancies: <input type="number" name="Pregnancies" required></label><br>
-            <label>Glucose (mg/dL): <input type="number" name="Glucose" required></label><br>
-            <label>Blood Pressure (mm Hg): <input type="number" name="BloodPressure" required></label><br>
-            <label>Skin Thickness (mm): <input type="number" name="SkinThickness" required></label><br>
-            <label>Insulin (μU/mL): <input type="number" name="Insulin" required></label><br>
-            <label>BMI (kg/m²): <input type="number" name="BMI" step="0.1" required></label><br>
-            <label>Diabetes Pedigree Function: <input type="number" name="DiabetesPedigreeFunction" step="0.01" required></label><br>
-            <label>Age (years): <input type="number" name="Age" required></label><br>
-            <input type="submit" value="Predict">
-        </form>
-        {% if error %}
-            <p class="error">{{ error }}</p>
-        {% endif %}
-    </div>
+    <form method="POST" onsubmit="return validateForm();">
+      <label>Pregnancies:
+        <input type="number" name="Pregnancies" required />
+      </label>
+      <label>Glucose (mg/dL):
+        <input type="number" name="Glucose" required />
+      </label>
+      <label>Blood Pressure (mm Hg):
+        <input type="number" name="BloodPressure" required />
+      </label>
+      <label>Skin Thickness (mm):
+        <input type="number" name="SkinThickness" required />
+      </label>
+      <label>Insulin (μU/mL):
+        <input type="number" name="Insulin" required />
+      </label>
+      <label>BMI (kg/m²):
+        <input type="number" name="BMI" step="0.1" required />
+      </label>
+      <label>Diabetes Pedigree Function:
+        <input type="number" name="DiabetesPedigreeFunction" step="0.01" required />
+      </label>
+      <label>Age (years):
+        <input type="number" name="Age" required />
+      </label>
+      <input class="submit-btn" type="submit" value="Predict" />
+    </form>
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+  </div>
+
+  <script>
+    function validateForm() {
+      return true;
+    }
+  </script>
 </body>
 </html>
